@@ -68,7 +68,33 @@ public class Code_Parser {
 		
 	}
 
+	private void parseClassInterfaceTypes(ClassOrInterfaceDeclaration unit) {
+		// TODO Auto-generated method stub
+		if(!unit.isInterface())
+		{
+			build_uml.append("class ").append(unit.getName()).append("{\n");
+			
+		}
+		else
+		{
+			build_uml.append("interface ").append(unit.getName()).append("{\n}\n");
+		}
+		build_uml.append("}\n");
+	}
 
+	public ClassOrInterfaceDeclaration GetClassAndInterface(CompilationUnit cunit) {
+		// TODO Auto-generated method stub
+		List<Node> Nlist = cunit.getChildNodes(); 
+		for(Node node : Nlist)
+		{
+			if(node instanceof ClassOrInterfaceDeclaration)
+			{
+				return (ClassOrInterfaceDeclaration)node;
+			}
+			
+		}
+		return null;
+	}
 	
 	
 
