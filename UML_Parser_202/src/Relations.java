@@ -17,7 +17,23 @@ public class RelationType {
         return endClass + r_enum.symbol + startClass + label;
     }
 
-    
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof RelationType) {
+            RelationType t = (RelationType) o;
+            if (t.endClass.equalsIgnoreCase(this.endClass) &&
+                    t.startClass.equalsIgnoreCase(this.startClass) &&
+                    t.getRelation() == this.getRelation()) {
+                return true;
+            } else
+                return false;
+        } else
+            return false;
+    }
+
+    public RelationEnum getRelation() {
+        return r_enum;
+    }
     
 }
 
