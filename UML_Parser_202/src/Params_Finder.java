@@ -1,15 +1,12 @@
 import com.github.javaparser.ast.type.Type;
 
-/**
- * Created by kaushik on 1/3/17.
- */
 public class Params_Finder {
 
-    private void checkRefrenceOrCollectionType(Type attributeType) {
+    private void checkRef_Coll_Type(Type att_type) {
 
     }
 
-    private void checkIsPrimitiveType(Type attrType) {
+    private void check_Primitive_Type(Type att_type) {
 
     }
 
