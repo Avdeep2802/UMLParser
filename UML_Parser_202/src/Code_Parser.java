@@ -26,7 +26,7 @@ public class Code_Parser {
 	public StringBuilder Read(String path) throws FileNotFoundException
 	{
 		File file = new File(path);
-		build_uml.append("@startuml\n skinparam classAttributeIconSize 0\n");
+		build_uml.append("@startuml\n");
 		System.out.println();
 		if(file.exists())
 		{
@@ -44,12 +44,13 @@ public class Code_Parser {
 						ClassOrInterfaceDeclaration cid = GetClassAndInterface(cunit);
 						System.out.println(cid+"----------");
 						if (cid != null) {
-							System.out.println("cid is not null");
-							CIMap.put(cid.getName().toString(), cid);
+							System.out.println(cid+" is the cid");
+							//CIMap.put(cid.getName().toString(), cid);
 							System.out.println("CIMAP : "+cid.getName().toString());
 						}
 						parseClassInterfaceTypes(cid);
-					} catch (Exception e) {
+					} 
+					catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
@@ -91,7 +92,6 @@ public class Code_Parser {
 			{
 				return (ClassOrInterfaceDeclaration)node;
 			}
-			
 		}
 		return null;
 	}
