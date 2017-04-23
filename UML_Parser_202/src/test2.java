@@ -59,5 +59,23 @@ public class test2 {
 	
 	
 	
+	
+	public static void main(String args[])
+	{
+		try {
+			StringBuilder sb = readCode();
+			System.out.println(sb);
+			SourceStringReader plantUmlReader = new SourceStringReader(sb.toString());
+			try (FileOutputStream imageOutputStream = new FileOutputStream("/Users/avdeepsandhu/Desktop/uml.png")) {
+                plantUmlReader.generateImage(imageOutputStream);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
 
