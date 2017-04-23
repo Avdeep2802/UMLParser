@@ -1,0 +1,9 @@
+public aspect SequenceAspect {
+
+    pointcut trace(): call(* *(..));
+
+    after() returning : trace() {
+        //System.out.println("  Traces !!");
+    }
+
+}
