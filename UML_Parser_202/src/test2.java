@@ -57,7 +57,33 @@ public class test2 {
 	}	
 	
 	
+	public static void parseClassInterfaceTypes(ClassOrInterfaceDeclaration node)
+	{
+		if(!node.isInterface())
+		{
+			build_uml.append(node.getNameAsString()).append("--> Bob\n");
+			build_relation.add(node.getExtendedTypes().stream().map(exType -> new RelationType(node.getNameAsString(),
+                    exType.getNameAsString(),
+                    RelationEnum.EXTENDS, " ")).collect(Collectors.toList()));
+		}
+		else
+		{
+			build_uml.append(node.getNameAsString()).append("-> Bob\n");
+		}
+	}
 	
+	public static ClassOrInterfaceDeclaration getNodes(CompilationUnit unit)
+	{
+		List<Node> Nlist = unit.getChildNodes(); 
+		for(Node node : Nlist)
+		{
+			if(node instanceof ClassOrInterfaceDeclaration)
+			{
+				return (ClassOrInterfaceDeclaration)node;
+			}
+		}
+		return null;
+	}
 	
 	
 	public static void main(String args[])
